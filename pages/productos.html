@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Productos || Amazonia</title>
+</head>
+
+<body>
+
+    <div class="navYLogo_Productos">
+        <a href="../index.html"><img src="../images/amazonia logo verde.png" alt="Logo Amazonia" class="logo"></a>
+        <nav class="menu__navegacion">
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="quienesSomos.html">Quienes Somos</a></li>
+                <li><a href="galeria.html">WikiDog</a></li>
+                <li><button type="button" class="btn position-relative botonCarrito" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                        <img src="../images/shopping_cart_black_24dp.svg" alt="" class="carritoDeCompras">
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                            id="cantProductos">
+                            0
+                            <span class="visually-hidden">unread messages</span>
+                        </span>
+                    </button></li>
+                <!-- Ventana OFFCANVAS de Bootstrap -->
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
+                    aria-labelledby="offcanvasRightLabel">
+                    <div class="offcanvas-header">
+                        <h5 id="offcanvasRightLabel">Carrito</h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <table class="table table-dark">
+                            <thead>
+                              <tr>
+                                <th scope="col">Producto</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Precio</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col"></th>
+                              </tr>
+                            </thead>
+                            <tbody id="tablaBody">
+                                <!-- Aqui se inserta la tabla a traves de JS -->
+                            </tbody>
+                          </table>
+                        <div class="infoCarrito">
+                            <div class="cantidadProductos">
+                                <h5>Cantidad de productos</h5>
+                                <p id="prodTotalesVentana">0</p>
+                            </div>
+                            <div class="totalAPagar">
+                                <h5>Total a pagar</h5>
+                                <p id="montoTotal">$0</p>
+                            </div>
+                            <button type="button" class="btn btn-success botonFinalizar" id="finalizarCompra">Finalizar Compra</button>
+                        </div>
+                    </div>
+                </div>
+                <li><img src="../images/account_circle_black_24dp.svg" alt="ingreso de usuario" class="ingresoAdmin"
+                        data-bs-toggle="modal" data-bs-target="#exampleModal"></li>
+            </ul>
+            <!-- Ventana MODAL de Bootstrap -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Ingreso de Administrador</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <form id="formularioIngreso" action="" >
+                            <div id="bodyModal" class="modal-body modal_Admin">
+                                    <p>Establezca contraseña por primera vez</p>
+                                    <div>
+                                        <label for="usuario"><img src="../images/account_circle_black_24dp.svg"
+                                                alt="ingreso de usuario"></label>
+                                        <input id="campoUsuario" name="usuario" type="text" placeholder="Ingrese su usuario" value="">
+                                    </div>
+                                    <div>
+                                        <label for="contraseña"><img src="../images/key_black_24dp.svg" alt=""></label>
+                                        <input id="campoContrasenia" name="contraseña" type="password" placeholder="Ingrese su contraseña" value="">
+                                    </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                <input type="submit" class="btn btn-primary" value="Entrar" id="botonIngresar"></input>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <header>
+        <h1 class="h1_Productos">Productos</h1>
+    </header>
+    <div class="d-flex">
+        <div class="menu_Lateral">
+            <!-- <aside>
+                    <h2>Categoria</h2>
+                    <ul>
+                        <li><a href="">Accesorios</a></li>
+                        <li><a href="">Balanceado</a></li>
+                        <li><a href="">Farmacia</a></li>
+                    </ul>
+                </aside> -->
+        </div>
+        <div id="cards_productos" class="cards_productos">
+        </div>
+    </div>
+
+    <!-- CDN de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+    <!-- CDN de JQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- Sweet Alert -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Scripts propios -->
+    <script src="../scripts/productos.js"></script>
+    <script src="../scripts/carrito.js"></script>
+</body>
+
+</html>

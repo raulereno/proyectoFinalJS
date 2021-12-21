@@ -1,0 +1,151 @@
+
+.navYLogo_Productos{
+    display: flex;
+    justify-content: space-between;
+    height: auto;
+    
+
+    .logo {
+        width: 8rem;
+        height: auto;
+        transition: all 0.6s;
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+    .menu__navegacion {
+        height: 2rem;
+        
+        ul {
+            display: flex;
+            justify-content: flex-end;
+            li {
+                list-style: none;
+                margin: 3rem 1rem;
+                .botonCarrito{
+                    padding: 0;
+                }
+                .carritoDeCompras,.ingresoAdmin{
+                    &:hover{
+                        cursor:pointer;
+                        transform: scale(1.2);
+                    }
+                }
+                a {
+                    text-decoration: none;
+                    font-size: 1.3rem;
+                    color: black;
+                    transition: all 0.7s;
+                    &:hover{
+                        padding: 8px;
+                        border-radius: 2px;
+                        color: #048600;
+                        font-size:1.5rem ;
+                    }
+                }
+            }
+        }
+        .offcanvas-end{
+            width: 500px;
+            .offcanvas-body{
+                padding: 0;
+                    .imgCarrito{
+                        width: 4.5rem;
+                        border: 1px solid rgb(213, 253, 197);
+                    }
+                    .basureroCarrito{
+                        width: 30px;
+                        &:hover{
+                            transform: scale(1.1);
+                        }
+                    }
+                
+                .infoCarrito{
+                    display: flex;
+                    width: 100%;
+                    justify-content: space-between;
+                    border-top: 1px solid black;
+                    position: sticky;
+                    bottom: 0;
+                    background-color: white;
+                    .cantidadProductos{
+                        display: flex;
+                        flex-direction: column;
+                        background-color: rgb(228, 228, 228);
+                        padding: 0 0.5rem 0 0.5rem;
+                        h5{
+                            font-size: 1rem;
+                        }
+                        p{
+                            align-self: center;
+                        }
+                    }
+                    .totalAPagar{
+                        display: flex;
+                        flex-direction: column;
+                        background-color: rgb(228, 228, 228);
+                        padding: 0 1rem 0 1rem;
+                        h5{
+                            font-size: 1.2rem;
+                        }
+                        p{
+                            align-self: center;
+                        }
+                    }
+                    .botonFinalizar{
+                        height: 2.5rem;
+                        align-self: center;
+                    }
+                }
+            }
+        }
+        .modal_Admin{
+            p{
+                text-align: center;
+            }
+            div{
+                display: flex;
+                justify-content: center;
+                margin: 2rem;
+
+                img{
+                    transform: scale(1.3);
+                    background-color: rgb(201, 201, 201);
+                    margin-right: 2.3px;
+                }
+            }
+        }
+    }
+}
+.h1_Productos{
+    background-color: rgb(248, 248, 248);
+    height: 5rem;
+}
+
+.cards_productos{
+    display: flex;
+    flex-wrap: wrap;
+    .card{
+        margin: 1rem;
+        display: flex; 
+        .card-img-top{
+            width: auto;
+            height: 15rem;
+            justify-self: center;
+            
+        }
+    }
+}
+
+.menu_Lateral{
+    margin-right: 3rem;
+    ul{
+        li{
+            list-style: none;
+            a{
+                color: black;
+            }
+        }
+    }
+    
+}
