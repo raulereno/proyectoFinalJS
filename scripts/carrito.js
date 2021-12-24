@@ -1,3 +1,8 @@
+$(document).ready(()=>{
+    console.log("DOM READY");
+    comprobarLocalStorage();
+})
+
 //Defino variable carrito y la inicio como array vacio 
 let carrito =[];
 console.log(carrito);
@@ -9,26 +14,29 @@ let cantidadDeProductos2= $("#prodTotalesVentana");
 
 let cantidad=0;
 
-//Comprobacion para ver si el localStorage tiene algun producto guardado
-if (localStorage.getItem("carritoPersistencia") != null) { 
-    carrito=JSON.parse(localStorage.getItem("carritoPersistencia"));
-    calcularTotal();
-    console.log(carrito);
+//funcion que comprueba local storage
+function comprobarLocalStorage(){
+    if (localStorage.getItem("carritoPersistencia") != null) { 
+        carrito=JSON.parse(localStorage.getItem("carritoPersistencia"));
+        calcularTotal();
+        console.log(carrito);
 
-    for(const producto of carrito){
-    $("#tablaBody").append(`
-        <tr id="fila${producto.codigo}"> 
-        <th scope="row"><img src="../images/${producto.nombreFoto}" class="imgCarrito"></th> 
-        <td>${producto.nombre}</td> 
-        <td>$${producto.precio}</td> 
-        <td id="cantidad${producto.codigo}">${producto.cantidad}</td> 
-        <td><button class="btn btn-light" id="basura${producto.codigo}"><img src="../images/trash.png" class="basureroCarrito"></button></td> </tr>`);
+        for(const producto of carrito){
+        $("#tablaBody").append(`
+            <tr id="fila${producto.codigo}"> 
+            <th scope="row"><img src="../images/${producto.nombreFoto}" class="imgCarrito"></th> 
+            <td>${producto.nombre}</td> 
+            <td>$${producto.precio}</td> 
+            <td id="cantidad${producto.codigo}">${producto.cantidad}</td> 
+            <td><button class="btn btn-light" id="basura${producto.codigo}"><img src="../images/trash.png" class="basureroCarrito"></button></td> </tr>`);
+        }
+        cantidad = parseInt(localStorage.getItem("cantidadEnCarrito"));
+        montoTotalAPagar.html(`$${localStorage.getItem("totalEnCarrito")}`) ;   
+        cantidadDeProductos.html (`${localStorage.getItem("cantidadEnCarrito")}`);
+        cantidadDeProductos2.html(`${localStorage.getItem("cantidadEnCarrito")}`);
+        
     }
-    montoTotalAPagar.html(`$${localStorage.getItem("totalEnCarrito")}`) ;   
-    cantidadDeProductos.html (`${localStorage.getItem("cantidadEnCarrito")}`);
-    cantidadDeProductos2.html(`${localStorage.getItem("cantidadEnCarrito")}`);
 }
-
 //Funcion que agrega productos al carrito, es llamada desde el archivo scripts linea 72. 
 function agregarAlCarro(producto){
     let encontrado = carrito.find( e => e.codigo == producto.codigo);
@@ -70,9 +78,9 @@ function agregarAlCarro(producto){
         $(`#${producto.codigo}`).html("Agregar a carrito")}).fadeIn(800, () =>{ 
             $(`#${producto.codigo}`).css("background", "#0d6efd")
         } );
-    
-    // En proceso
-    //$(`#basura${producto.codigo}`).click((e)=>{eliminarFila(producto.codigo)});
+
+    // //Evento click para eliminar producto
+    // $(`#basura${producto.codigo}`).click((e)=>{eliminarFila(producto.codigo)});    
 }
 
 //Función que calcula el total de los precios
@@ -104,5 +112,6 @@ function finalizarCompra(){
 }
 
 // function eliminarFila(numero){
-   //En proceso 
+//     let filaElegida = "fila"+numero;
+//     console.log(filaElegida);
 // }

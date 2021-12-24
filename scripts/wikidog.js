@@ -34,6 +34,37 @@ function mostrarRaza(id){
     let encontrado = razas.findIndex(parametro)
     console.log(encontrado);
     let imagen = razas[encontrado].image;
+    let peso =razas[encontrado].weight;
+    let altura =razas[encontrado].height;
     $("#breed_image").attr(`src`, imagen.url );
+    $("#breed_data_table").html(
+        `<caption class="tituloDeTabla">Informacion de la raza:<br>${razas[encontrado].name}</caption>
+        <tbody>
+        <tr class="nombreDeRaza">
+            <td>Nombre</td>
+            <td>${razas[encontrado].name}</td>
+        </tr>
+        <tr class="criadoPara">
+            <td>Criado para:</td>
+            <td>${razas[encontrado].bred_for}</td>
+        </tr>
+        <tr class="temperamento">
+            <td>Temperamento:</td>
+            <td>${razas[encontrado].temperament}</td>
+        </tr>
+        <tr class="esperanzaDeVida">
+            <td>Esperanza de vida:</td>
+            <td>${razas[encontrado].life_span} (años)</td>
+        </tr>
+        <tr class="peso">
+            <td>Peso promedio:</td>
+            <td>${peso.metric} kg</td>
+        </tr>
+        <tr class="altura">
+            <td>Altura promedio:</td>
+            <td>${altura.metric} cm</td>
+        </tr>
+        </tbody>`
+
+    );
 }
-//Para la siguiente preentrega pondre el

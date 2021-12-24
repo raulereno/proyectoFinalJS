@@ -104,6 +104,43 @@
     <header>
         <h1 class="h1_Productos">Productos</h1>
     </header>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+        Agregar Productos
+    </button>
+    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Producto Nuevo</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body modalProductosNuevos">
+              <form action="">
+                  <div>
+                      <label for="nombreProducto">Nombre del nuevo producto:</label>
+                      <input type="text" name="nombreProducto">
+                  </div>
+                  <div>
+                      <label for="precioProducto">Precio en $(pesos):</label>
+                      <input type="number" name="precioProducto">
+                  </div>
+                  <div>
+                      <label for="stock">Stock disponible:</label>
+                      <input type="number" name="stock">
+                  </div>
+                  <div>
+                      <label for="urlImagen">Url de la imagen del producto:</label>
+                      <input type="text" name="urlImagen">
+                  </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-primary">Cargar Producto</button>
+            </div>
+          </div>
+        </div>
+      </div>
     <div class="d-flex">
         <div class="menu_Lateral">
             <!-- <aside>

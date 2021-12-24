@@ -166,6 +166,51 @@
   color: black;
 }
 
+.contenedorWikiDog {
+  display: flex;
+}
+
+.contenedorWikiDog #banner-message {
+  background: #fff;
+  border-radius: 4px;
+  padding: 20px;
+  font-size: 25px;
+  text-align: center;
+  transition: all 0.2s;
+  margin: 0 auto;
+  width: 500px;
+}
+
+.contenedorWikiDog #breed_data {
+  background: #fff;
+  border-radius: 4px;
+  padding: 20px;
+  font-size: 12px;
+  text-align: left;
+  transition: all 0.2s;
+  margin: 0 auto;
+  width: 500px;
+}
+
+.contenedorWikiDog #breed_image {
+  background: #fff;
+  margin: 0 auto;
+  width: 460px;
+}
+
+.contenedorWikiDog #breed_data {
+  align-self: center;
+}
+
+.contenedorWikiDog #breed_data_table {
+  display: flex;
+  flex-direction: column;
+}
+
+.contenedorWikiDog #breed_data_table .tituloDeTabla {
+  width: 100%;
+}
+
 * {
   margin: 0;
   padding: 0;
