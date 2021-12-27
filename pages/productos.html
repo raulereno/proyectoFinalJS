@@ -41,18 +41,18 @@
                     <div class="offcanvas-body">
                         <table class="table table-dark">
                             <thead>
-                              <tr>
-                                <th scope="col">Producto</th>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Precio</th>
-                                <th scope="col">Cantidad</th>
-                                <th scope="col"></th>
-                              </tr>
+                                <tr>
+                                    <th scope="col">Producto</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Precio</th>
+                                    <th scope="col">Cantidad</th>
+                                    <th scope="col"></th>
+                                </tr>
                             </thead>
                             <tbody id="tablaBody">
                                 <!-- Aqui se inserta la tabla a traves de JS -->
                             </tbody>
-                          </table>
+                        </table>
                         <div class="infoCarrito">
                             <div class="cantidadProductos">
                                 <h5>Cantidad de productos</h5>
@@ -62,7 +62,8 @@
                                 <h5>Total a pagar</h5>
                                 <p id="montoTotal">$0</p>
                             </div>
-                            <button type="button" class="btn btn-success botonFinalizar" id="finalizarCompra">Finalizar Compra</button>
+                            <button type="button" class="btn btn-success botonFinalizar" id="finalizarCompra">Finalizar
+                                Compra</button>
                         </div>
                     </div>
                 </div>
@@ -78,18 +79,20 @@
                             <h5 class="modal-title" id="exampleModalLabel">Ingreso de Administrador</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <form id="formularioIngreso" action="" >
+                        <form id="formularioIngreso" action="">
                             <div id="bodyModal" class="modal-body modal_Admin">
-                                    <p>Establezca contraseña por primera vez</p>
-                                    <div>
-                                        <label for="usuario"><img src="../images/account_circle_black_24dp.svg"
-                                                alt="ingreso de usuario"></label>
-                                        <input id="campoUsuario" name="usuario" type="text" placeholder="Ingrese su usuario" value="">
-                                    </div>
-                                    <div>
-                                        <label for="contraseña"><img src="../images/key_black_24dp.svg" alt=""></label>
-                                        <input id="campoContrasenia" name="contraseña" type="password" placeholder="Ingrese su contraseña" value="">
-                                    </div>
+                                <p>Establezca contraseña por primera vez</p>
+                                <div>
+                                    <label for="usuario"><img src="../images/account_circle_black_24dp.svg"
+                                            alt="ingreso de usuario"></label>
+                                    <input id="campoUsuario" name="usuario" type="text" placeholder="Ingrese su usuario"
+                                        value="">
+                                </div>
+                                <div>
+                                    <label for="contraseña"><img src="../images/key_black_24dp.svg" alt=""></label>
+                                    <input id="campoContrasenia" name="contraseña" type="password"
+                                        placeholder="Ingrese su contraseña" value="">
+                                </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -109,38 +112,38 @@
     </button>
     <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Producto Nuevo</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Producto Nuevo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body modalProductosNuevos">
+                    <form action="" id="formularioDeCarga">
+                        <div>
+                            <label for="nombreProducto">Nombre del nuevo producto:</label>
+                            <input type="text" name="nombreProducto" id="nombreProdNuevo" class="datosProdNuevo">
+                        </div>
+                        <div>
+                            <label for="precioProducto">Precio en $(pesos):</label>
+                            <input type="number" name="precioProducto" id="precioNuevo" class="datosProdNuevo">
+                        </div>
+                        <div>
+                            <label for="stock">Stock disponible:</label>
+                            <input type="number" name="stock" id="stockNuevo" class="datosProdNuevo">
+                        </div>
+                        <div>
+                            <label for="urlImagen">Url de la imagen del producto:</label>
+                            <input type="text" name="urlImagen" id="imgProdNuevo" class="datosProdNuevo">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" form="formularioDeCarga">Cancelar</button>
+                    <button type="submit" class="btn btn-primary" id="cargaProdNuevo" form="formularioDeCarga">Cargar Producto</button>
+                </div>
             </div>
-            <div class="modal-body modalProductosNuevos">
-              <form action="">
-                  <div>
-                      <label for="nombreProducto">Nombre del nuevo producto:</label>
-                      <input type="text" name="nombreProducto">
-                  </div>
-                  <div>
-                      <label for="precioProducto">Precio en $(pesos):</label>
-                      <input type="number" name="precioProducto">
-                  </div>
-                  <div>
-                      <label for="stock">Stock disponible:</label>
-                      <input type="number" name="stock">
-                  </div>
-                  <div>
-                      <label for="urlImagen">Url de la imagen del producto:</label>
-                      <input type="text" name="urlImagen">
-                  </div>
-              </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-primary">Cargar Producto</button>
-            </div>
-          </div>
         </div>
-      </div>
+    </div>
     <div class="d-flex">
         <div class="menu_Lateral">
             <!-- <aside>
@@ -161,7 +164,8 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
     <!-- CDN de JQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!-- Sweet Alert -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Scripts propios -->

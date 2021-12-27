@@ -24,7 +24,7 @@ function comprobarLocalStorage(){
         for(const producto of carrito){
         $("#tablaBody").append(`
             <tr id="fila${producto.codigo}"> 
-            <th scope="row"><img src="../images/${producto.nombreFoto}" class="imgCarrito"></th> 
+            <th scope="row"><img src="${producto.nombreFoto}" class="imgCarrito"></th> 
             <td>${producto.nombre}</td> 
             <td>$${producto.precio}</td> 
             <td id="cantidad${producto.codigo}">${producto.cantidad}</td> 
