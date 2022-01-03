@@ -13,6 +13,8 @@ class Producto{
 $( document ).ready(function() 
 {
    console.log( "El DOM esta listo" );
+
+   $("#agregarProductos").hide();
    crearCards();
 });
 
@@ -21,7 +23,7 @@ const listaDeProductos = [];
 //Tomando elemento padre
 let divPadreCards = document.getElementById("cards_productos");
 //Creacion de lo productos
-listaDeProductos.push(new Producto("Pelota de Goma",300,6,1,"https://lh3.googleusercontent.com/P0UME3gu_7ZERZ9sfhNsFvR2eDunX0K6ukhjXpp0Nia4c0jpmOiQmEgKtTBSvmVBibxSML6halmqhpgrmlaX1nyfXvuU9oN9CiqDod_k7W80Pg7QGLiYiU914L_tzgUzbIIu0OQC1e8dBvZObx26JMQyqBAGXxbAJihxADs-FUgOm2Ibo51MvC_DCqahXsEmyWe1cGIX0UQvU3I4vA1B_mg2HNiochd_i6TAb9xJ-bDk4o0TTziuQriCE1XKKSquoOeDjhBEH880Ss6K-n5rkNJo7JEhq0AYJzHEMK8nAIbb-ugslVnhshr3c8c5B7gT2akq0P-heLwY8H6RU5mcD407_CGnYnWNRttezujDJTgj4lbqEjMYQvjbm1eVP448DPRS6iiFHw-jDemsNzi7NaF3QL09a9F_f1blOyV6jPxx07S_6WMZq8EkyshQ-BbnljSrxLE5rEWbER4-fW_foP9-qsjzQGj2DvSGTjXsOiC42Kl0ShuBWtbwuYhdkwe-NbjF8CC6r7Xt6WHs9OmpInSPu2rEKXh2ap9RrvJeRbL_8Y5c6HNC_BrEx2mAcIWIBlXPJXgcd3UlRpm_-wVlQzT0quLmFn7kTb5bvetJMEFMhr54-Q-rYTCtI9Nu-s-_Hx2A2nHq4PstqqhUR1pwZZBQRvmQAilPLbRF-nFX2CtczynEaOvWACRpdM3DUwtcR2jIfMCCqw2Oe4-3mKkvv-M=w164-h219-no?authuser=0"));
+listaDeProductos.push(new Producto("Pelota de Goma",300,6,1,"https://lh3.googleusercontent.com/pw/AM-JKLXbTM_f-Ylm-Bu7MTuVSSqZva_x6mfWFmUFBsRGK7k8FSlr17-NDUbIdBVJTCe2uUZpueDgAZ7gfGWDx-75ODjCfJvdULS0WrvN8nKpXUX2wbPihSx1B1x0xvJaupglsik3VGzsjU-85KIqf5gZoyH07A=w469-h625-no?authuser=0"));
 listaDeProductos.push(new Producto("Cepillo de Dientes",150,10,2,"https://lh3.googleusercontent.com/CJ1ERZ8E-d_OdCj79D1A1faEIkMbM0qyjG4gw3OgrCRA6YOGGGPdvxW_wML58Q5vQlW5X5ebjXQVn-7MIretTzDSgCzfry7qUdyPzVEC-7Q2ZDzK6o5WtKjke-owzbs6q1Y47bJR4B77Lk2o76K5w3cGqy8v5nn_zhmm7bdMFQu1mpvZPAnJ2IKlpq-8K2z3BcDmPkN0OnaG9KWbJD2lxo2w9gGwwYbzIsauDTXWIvYVprCjuoAo15-3OeldpsG3ZklRulZLX5pjOOlX-15jgNnni9TAgtPmgWtokM4lBE08ZBTwjK8HIJkwYLegNzNfO9kBVk5p2D-Y4_iMJpo-k0cnLoBuTRcWSLT3_3Bu7htp4KV-YQ276mgRHR57-TxHfEXa9dDQ4fhvWHwOp8zxZwwplfeuuDrSSBMdyb9Rj7Ivp_XVpMq1zCdQf7b4fvyLL_moeqZ-m_3bod7cXDJYqxDDo4GgPs8BlixltD3SpUxGlcRMv8J9IaqAB6a1PvrjpUU4zDWNbhs5ACrLANSES_pZVildzwW-DGkSx6ULLRew5qhBr2dz0H9MGjGSiuqamHsJLcl8M02kBl8tgvwmS9J-TBTed9MajyZUuxvGBjTvYUxHdeqUVVcgeCvvAnCA5FrH3EV8uAK5o88OqB7KMHW3CBYMxbu5mvRRnWcaKhkiuv1aQgtv6it1xDHxUaEpvcG6mp-Rcs3S9P29GwRyrrQ=w469-h625-no?authuser=0"));
 listaDeProductos.push(new Producto("Hueso Grande",250,8,3,"https://lh3.googleusercontent.com/Q7AChrLGdnuizdBFwANQ2_3zt0MLN-ro41hiZHATONRfO2Sa3y7gtNgrq_k_6SriYiHJjqGkSSqgXyOSbWUkIMsW87TCJyZbAkM0I6bvB2LATzDC_Wh04BGI0TbNEmMLYG3nTAQmbbBWvi79340lk476usWOmADsCK5Un5my5dJkqWwnzAmTHf87_O1YU-Ujr3wFR3ZznXP6SJv4gvufTXIcQ4_NWUpY5hlVXuc4y3xfrKhMTlvKC6MRyyFn5RmE1fH2j5i_aYL92c_iQnF_xfbGZd9hUgtBrrLIx5y64yIzvk3j-fGFnSuZ5Beypz0jsvyEH6rzUvumvpLSFpyDYAVV8dv6CvgiG0WCOv36O9n_BIiy5OJpbXm38acqYLmKpzj47y9sjTaBz14Hts-vEdkfSGDhYRmcKHQ12TgOtCTI7RDc8PQrqxvI-0moRQ3Z2ur1OGh_nWPU1UcaRBfQZ9oPtNAYk1tC4FRQUEtd-1JstbddbLsVygwugcQx8s0aBgjJnqaUJSM2dZ3uPG67kS2QPHBChpuXhmkFFKu5Y9H9qrhaQ17sHpHaq8I_dVS97G0G4gX091uYjR6mPBgJ05knippY_hS64PAgBR2kuWhLcn5keayk5eVT3OhyyM5CKTH_JnXhIhCGzvyqzJLyRGWdTkmak31px4Zgp6KBnkSvfE9H3tF6TKBhhyzYeNtX0YZ9MMfe6_yuOx4vLL8TClE=w469-h625-no?authuser=0"));
 listaDeProductos.push(new Producto("Shampoo Antiparasitario",350,10,4,"https://lh3.googleusercontent.com/nIEXVst2w6HZJsC7L47_JFptZrlmCir4BrzSHsKK3hCLt-xqomqV_p1qXzK1O7COxEqfhy-S2qOTVeHMApwoTpzTFAPzXSkclYFZ3VmjQ-IXKFtFs9k8WvDjRJW5Ht4vMPMCdnNjyKWIdjfswM_--uyDwuKCSKzUaXwCSZAdkgEsuLK4su1Nl7i12wkWObGnKHuP2IumgpmaIJNQBLuYPGQsedmvQ4_1PTxN2XeZYVsAyrbpxxItQBa2Tm6QLvdVjLoDTkpNrtOb1iXgJFcCK4DnfkzEVqQpmCcvvOf68Tiic5yfPH9_dBLx35de2vccQTtCEgBh1nuQT2SYUNNJ39YqSz6xecf1yHiKysVohtPyAr0tF0WiDX00wH1nl1eEiGNtJGkWJOWRkGW7HDdTUCvod4ly3ZQXHQkUcQwtEetVy2z6doXTSwS-4xYsR1NRHpbbCFyNp4RMBR-figgRKLc33fgb0PDwT0IfeifUx4BieV20meFEIRR8FDTf60q1oEG57syeSYdoO16_CkxN7_0h4EHqahbv0adElDrk9PJTuYWASVd3qCDxLDZmFVOGib10Yj156T2phcN0eZ5AmnLCZNLR3gJBOp4kHJusIU1z6L8rsqsmrUuheGV2zFZCErSEPn7XHlPCvHKPMbCy0-7mtobeWl_g0t0Jz094bigfQ4zvF36IJMj1JoGwsod4URbLDxkiDcq2jUAu4a055bg=w469-h625-no?authuser=0"));
@@ -60,6 +62,7 @@ function obtenerDatosProdNuevo(){
     $("#formularioDeCarga").submit((e)=>{
         e.preventDefault();
         let datos = $(e.target).children().children(".datosProdNuevo");
+        console.log(datos);
         agregarProdNuevo(datos);
     })
 }
@@ -68,4 +71,8 @@ function agregarProdNuevo(productoNuevo){
     listaDeProductos.push(new Producto(productoNuevo[0].value,productoNuevo[1].value,productoNuevo[2].value,(listaDeProductos.length+1),productoNuevo[3].value ));
     console.log(listaDeProductos);
     crearCards();
+}
+
+function aparecerBotonDeCarga(){
+    $("#agregarProductos").show();
 }

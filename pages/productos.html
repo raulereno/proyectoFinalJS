@@ -79,26 +79,26 @@
                             <h5 class="modal-title" id="exampleModalLabel">Ingreso de Administrador</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <form id="formularioIngreso" action="">
-                            <div id="bodyModal" class="modal-body modal_Admin">
-                                <p>Establezca contraseña por primera vez</p>
+                        <div id="bodyModal" class="modal-body modal_Admin">
+                            <p>Ingrese su usuario y contraseña.<b>(Estan en el consola)</b></p>
+                            <form id="formularioIngreso" action="">
                                 <div>
                                     <label for="usuario"><img src="../images/account_circle_black_24dp.svg"
                                             alt="ingreso de usuario"></label>
-                                    <input id="campoUsuario" name="usuario" type="text" placeholder="Ingrese su usuario"
-                                        value="">
+                                    <input id="campoUsuario" name="usuario" type="text" placeholder="Ingrese su usuario" value="" class="ingresoAdmin">
                                 </div>
                                 <div>
                                     <label for="contraseña"><img src="../images/key_black_24dp.svg" alt=""></label>
                                     <input id="campoContrasenia" name="contraseña" type="password"
-                                        placeholder="Ingrese su contraseña" value="">
+                                        placeholder="Ingrese su contraseña" value="" class="ingresoAdmin">
                                 </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                <input type="submit" class="btn btn-primary" value="Entrar" id="botonIngresar"></input>
-                            </div>
-                        </form>
+                                <p class="parrafoErrorIngreso"></p>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <input type="submit" class="btn btn-primary" value="Entrar" id="botonIngresar" form="formularioIngreso"></input>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -107,7 +107,8 @@
     <header>
         <h1 class="h1_Productos">Productos</h1>
     </header>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2"
+        id="agregarProductos">
         Agregar Productos
     </button>
     <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -138,8 +139,10 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" form="formularioDeCarga">Cancelar</button>
-                    <button type="submit" class="btn btn-primary" id="cargaProdNuevo" form="formularioDeCarga">Cargar Producto</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                        form="formularioDeCarga">Cancelar</button>
+                    <button type="submit" class="btn btn-primary" id="cargaProdNuevo" form="formularioDeCarga">Cargar
+                        Producto</button>
                 </div>
             </div>
         </div>
@@ -171,6 +174,7 @@
     <!-- Scripts propios -->
     <script src="../scripts/productos.js"></script>
     <script src="../scripts/carrito.js"></script>
+    <script src="../scripts/validacion.js"></script>
 </body>
 
 </html>
