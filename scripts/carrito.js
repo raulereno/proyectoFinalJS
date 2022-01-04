@@ -50,7 +50,7 @@ function agregarAlCarro(producto){
         
         $("#tablaBody").append(`
         <tr id="fila${producto.codigo}"> 
-        <th scope="row"><img src="../images/${producto.nombreFoto}" class="imgCarrito"></th> 
+        <th scope="row"><img src="${producto.linkFoto}" class="imgCarrito"></th> 
         <td>${producto.nombre}</td> 
         <td>$${producto.precio}</td> 
         <td id="cantidad${producto.codigo}">${producto.cantidad}</td> 
@@ -97,10 +97,10 @@ function finalizarCompra(){
     Swal.fire({
         icon:'success',
         showDenyButton: true,
-        title:'Gracias por la Compra',
+        title:'Pedido procesado,desea continuar?',
         html:'Cantidad de productos: '+localStorage.getItem("cantidadEnCarrito") +'<br>Total:$'+localStorage.getItem("totalEnCarrito"),
         denyButtonText:'Cancelar compra',
-        confirmButtonText:'Ir a metodos de pago',
+        confirmButtonText:'Envio y metodos de pago',
         reverseButtons:true,
     });
     localStorage.clear();
