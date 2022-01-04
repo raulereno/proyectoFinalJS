@@ -2,7 +2,7 @@
 class Producto{
     constructor(nombre,precio,stock,codigo,linkFoto){
         this.nombre = nombre;
-        this.precio = ((parseFloat(precio)*0.16)+parseFloat(precio));
+        this.precio = Math.round((parseFloat(precio)*0.16)+parseFloat(precio));
         this.stock = parseInt(stock);
         this.codigo = parseInt(codigo);
         this.linkFoto = linkFoto;
@@ -21,11 +21,16 @@ $( document ).ready(function()
    console.log( "El DOM esta listo" );
 
    $("#agregarProductos").hide();
+   //Comprueba si hubo una carga de productos nuevos y reemplaza el valor del array de objetos con el valor que hay guardado en el localStorage
+   if (localStorage.getItem("listaDeProductos") != null){
+       listaDeProductos =JSON.parse(localStorage.getItem('listaDeProductos')) 
+    }
+    //Cuando el DOM este listo crea las cards
    crearCards();
 });
 
-//Lista de productos
-const listaDeProductos = []; 
+//Lista de productos vacia
+let listaDeProductos = []; 
 //Tomando elemento padre
 let divPadreCards = document.getElementById("cards_productos");
 //Creacion de lo productos
@@ -38,8 +43,6 @@ listaDeProductos.push(new Producto("Collar con Cascabel",400,11,6,"https://lh3.g
 listaDeProductos.push(new Producto("Espuma Seca",550,6,7,"https://lh3.googleusercontent.com/pw/AM-JKLW2ghuLjF1W-3BSF87ylCDv60Fte5wxH-ODkfDLMARCA-C2ViBCJpmawhsALf1tETFG-GDsyBxY3WAQUK90aF_WrHieDxL2HfU96UwPdoOwhI_LfLWRRL0kB-hW0m_A7dedRVwhJ6-1nh98A3MJOZyxFg=w469-h625-no?authuser=0"));
 listaDeProductos.push(new Producto("Cepillo para pelos",550,15,8,"https://lh3.googleusercontent.com/pw/AM-JKLU9Ryt-ZH6KBgxcxNp8nw9qyWyeiuxr668CQGDKeYcL3ViNioGcEEfXzLKufQ-SD6ti3x0EwGkXLij1XqCTsb3WCaN3TUU5LY-KKDNpohIEPWgv59CAjnUDWuZCRd9QZO86I5V5fE-sgaETZUDs9pHgww=w469-h625-no?authuser=0"));
 listaDeProductos.push(new Producto("Comederos",280,18,9,"https://lh3.googleusercontent.com/pw/AM-JKLXRuPMHnuG0RSEp9ifIwXLEQ9IQHoeKoIDTkANIS3LekNd9HcdxZ_ihiawsTdfbETbuLhwu_vJuMxNC9PZ-kcvQvH4IIz15WIz_faMUnMSWx5XK3X4LIDVW7BzjZCdWufGZx4pYQ2YnzLQ76rUbsf3ijA=w469-h625-no?authuser=0"));
-
-console.log(listaDeProductos)
 
 function crearCards(){
     //For...of que recorre la lista de objetos y va creando las cards correspondientes
@@ -78,6 +81,8 @@ function obtenerDatosProdNuevo(){
 function agregarProdNuevo(productoNuevo){
     listaDeProductos.push(new Producto(productoNuevo[0].value,productoNuevo[1].value,productoNuevo[2].value,(listaDeProductos.length+1),productoNuevo[3].value ));
     console.log(listaDeProductos);
+    localStorage.setItem('listaDeProductos',JSON.stringify(listaDeProductos))
+    listaDeProductos = JSON.parse(localStorage.getItem('listaDeProductos'));
     crearCards();
 }
 

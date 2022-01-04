@@ -24,11 +24,13 @@ function comprobarLocalStorage(){
         for(const producto of carrito){
         $("#tablaBody").append(`
             <tr id="fila${producto.codigo}"> 
-            <th scope="row"><img src="${producto.nombreFoto}" class="imgCarrito"></th> 
+            <th scope="row"><img src="${producto.linkFoto}" class="imgCarrito"></th> 
             <td>${producto.nombre}</td> 
             <td>$${producto.precio}</td> 
             <td id="cantidad${producto.codigo}">${producto.cantidad}</td> 
             <td><button class="btn btn-light" id="basura${producto.codigo}"><img src="../images/trash.png" class="basureroCarrito"></button></td> </tr>`);
+            //Agrego evento para poder eliminar el producto al refrescar pagina
+            //$(`#basura${producto.codigo}`).click((e)=>{eliminarFila(producto.codigo)});  
         }
         cantidad = parseInt(localStorage.getItem("cantidadEnCarrito"));
         montoTotalAPagar.html(`$${localStorage.getItem("totalEnCarrito")}`) ;   
@@ -80,7 +82,7 @@ function agregarAlCarro(producto){
         } );
 
     // //Evento click para eliminar producto
-    // $(`#basura${producto.codigo}`).click((e)=>{eliminarFila(producto.codigo)});    
+    //$(`#basura${producto.codigo}`).click((e)=>{eliminarFila(producto.codigo)});    
 }
 
 //Función que calcula el total de los precios
