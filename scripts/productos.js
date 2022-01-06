@@ -62,7 +62,7 @@ function crearCards(){
         </div>`;
         //Asignacion del nodo hijo al nodo padre
         divPadreCards.appendChild(card);
-        //Tomo el elemento por codigo y le ponemos un evento onClick para agregar al carro
+        //Tomo el elemento por codigo y le ponemos un evento onClick para agregar al carro, enviando por parametro el producto entero 
         $(`#${producto.codigo}`).click((e) => {agregarAlCarro(producto);});
     }
 }

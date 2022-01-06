@@ -1,5 +1,6 @@
 $(document).ready(()=>{
     console.log("DOM READY");
+    console.log("Usuario: admin / Contraseña: 1234");
     comprobarLocalStorage();
 })
 
@@ -30,7 +31,7 @@ function comprobarLocalStorage(){
             <td id="cantidad${producto.codigo}">${producto.cantidad}</td> 
             <td><button class="btn btn-light" id="basura${producto.codigo}"><img src="../images/trash.png" class="basureroCarrito"></button></td> </tr>`);
             //Agrego evento para poder eliminar el producto al refrescar pagina
-            //$(`#basura${producto.codigo}`).click((e)=>{eliminarFila(producto.codigo)});  
+            $(`#basura${producto.codigo}`).click((e)=>{eliminarFila(producto.codigo)});  
         }
         cantidad = parseInt(localStorage.getItem("cantidadEnCarrito"));
         montoTotalAPagar.html(`$${localStorage.getItem("totalEnCarrito")}`) ;   
@@ -82,7 +83,7 @@ function agregarAlCarro(producto){
         } );
 
     // //Evento click para eliminar producto
-    //$(`#basura${producto.codigo}`).click((e)=>{eliminarFila(producto.codigo)});    
+    $(`#basura${producto.codigo}`).click((e)=>{eliminarFila(producto.codigo)});    
 }
 
 //Función que calcula el total de los precios
@@ -90,8 +91,7 @@ function calcularTotal(){
     let total = 0;
     for(let prodEnCarro of carrito){
         total += (prodEnCarro.precio*prodEnCarro.cantidad);
-        console.log(total)
-    } 
+   } 
     return total;
 }
 //Funcion que limpia el localStorage y reestablece los valores de precio total, y cantidad de productos
@@ -113,7 +113,7 @@ function finalizarCompra(){
     $(`#tablaBody`).html("");
 }
 
-// function eliminarFila(numero){
-//     let filaElegida = "fila"+numero;
-//     console.log(filaElegida);
-// }
+function eliminarFila(numeroBasurero){
+    let filaElegida = "basura"+numeroBasurero;
+    $(`#${filaElegida}`).closest('tr').remove();
+}
