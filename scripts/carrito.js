@@ -31,7 +31,7 @@ function comprobarLocalStorage(){
             <td id="cantidad${producto.codigo}">${producto.cantidad}</td> 
             <td><button class="btn btn-light" id="basura${producto.codigo}"><img src="../images/trash.png" class="basureroCarrito"></button></td> </tr>`);
             //Agrego evento para poder eliminar el producto al refrescar pagina
-            $(`#basura${producto.codigo}`).click((e)=>{eliminarFila(producto.codigo)});  
+            $(`#basura${producto.codigo}`).click((e)=>{eliminarProducto(producto.codigo)});  
         }
         cantidad = parseInt(localStorage.getItem("cantidadEnCarrito"));
         montoTotalAPagar.html(`$${localStorage.getItem("totalEnCarrito")}`) ;   
@@ -58,22 +58,18 @@ function agregarAlCarro(producto){
         <td>$${producto.precio}</td> 
         <td id="cantidad${producto.codigo}">${producto.cantidad}</td> 
         <td><button class="btn btn-light" id="basura${producto.codigo}"><img src="../images/trash.png" class="basureroCarrito"></button></td> </tr>`);
+        //Evento click para eliminar producto
+        $(`#basura${producto.codigo}`).click((e)=>{eliminarProducto(producto.codigo)});    
     }
     else{
         let posicion = carrito.findIndex(e => e.codigo == producto.codigo);
         console.log(posicion);
         carrito[posicion].cantidad +=1;
+        localStorage.setItem("carritoPersistencia",JSON.stringify(carrito));
         $(`#cantidad${producto.codigo}`).html(carrito[posicion].cantidad);
     }
-
-    //Guardo la cantidad de productos y el total a pagar en el Local Storage
-    localStorage.setItem("cantidadEnCarrito",cantidad);
-    localStorage.setItem("totalEnCarrito",calcularTotal());
-    //Actualizacion de variables para que aparezca cantidad de productos y total a pagar
-    montoTotalAPagar.html(`$${calcularTotal()}`)    
-    cantidadDeProductos.html (cantidad);
-    cantidadDeProductos2.html(cantidad);
-    console.log(cantidad);
+//Llamado a funcion para ir actualizando el DOM
+    cantidadYTotalProds();
     //Animaciones concatenadas para efecto de agregar al carrito
     $(`#${producto.codigo}`).css("background","green").fadeOut(800, () =>{
         $(`#${producto.codigo}`).html("Agregado ✔️")
@@ -82,8 +78,6 @@ function agregarAlCarro(producto){
             $(`#${producto.codigo}`).css("background", "#0d6efd")
         } );
 
-    // //Evento click para eliminar producto
-    $(`#basura${producto.codigo}`).click((e)=>{eliminarFila(producto.codigo)});    
 }
 
 //Función que calcula el total de los precios
@@ -113,7 +107,33 @@ function finalizarCompra(){
     $(`#tablaBody`).html("");
 }
 
-function eliminarFila(numeroBasurero){
-    let filaElegida = "basura"+numeroBasurero;
-    $(`#${filaElegida}`).closest('tr').remove();
+function eliminarProducto(codigo){
+    let encontrado = carrito.findIndex((elemento)=>elemento.codigo == codigo);
+    
+    if(carrito[encontrado].cantidad > 1){
+        carrito[encontrado].cantidad = carrito[encontrado].cantidad -1;
+        console.log(carrito[encontrado].cantidad);
+        $(`#cantidad${codigo}`).html(carrito[encontrado].cantidad);
+        
+        //Actualizo el localStorage con la nueva cantidad
+        localStorage.setItem("carritoPersistencia",JSON.stringify(carrito));
+    }
+    else{
+        carrito.splice(encontrado, 1)
+        $(`#basura${codigo}`).closest(`tr`).remove();
+        localStorage.setItem("carritoPersistencia",JSON.stringify(carrito));
+    }
+    cantidad = cantidad - 1;
+    cantidadYTotalProds();
+}
+//Funcion que actualiza la cantidad de productos en carrito y el total a pagar
+function cantidadYTotalProds(){
+    //Guardo la cantidad de productos y el total a pagar en el Local Storage
+    localStorage.setItem("cantidadEnCarrito",cantidad);
+    localStorage.setItem("totalEnCarrito",calcularTotal());
+    //Actualizacion de variables para que aparezca cantidad de productos y total a pagar
+    montoTotalAPagar.html(`$${calcularTotal()}`)    
+    cantidadDeProductos.html (cantidad);
+    cantidadDeProductos2.html(cantidad);
+    console.log(cantidad);
 }
