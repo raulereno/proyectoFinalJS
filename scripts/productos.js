@@ -2,7 +2,7 @@
 class Producto{
     constructor(nombre,precio,codigo,linkFoto){
         this.nombre = nombre;
-        this.precio = Math.round((parseFloat(precio)*0.16)+parseFloat(precio));
+        this.precio = parseFloat(precio);
         this.codigo = parseInt(codigo);
         this.linkFoto = linkFoto;
         this.cantidad = 1 ;

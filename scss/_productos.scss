@@ -1,4 +1,11 @@
 
+.finalizarCompra{
+    text-decoration: none;
+    color: black;
+    &:hover{
+        color:white;
+    }
+}
 .navYLogo_Productos{
     display: flex;
     justify-content: space-between;

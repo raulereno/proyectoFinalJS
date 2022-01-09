@@ -68,7 +68,7 @@ function agregarAlCarro(producto){
         localStorage.setItem("carritoPersistencia",JSON.stringify(carrito));
         $(`#cantidad${producto.codigo}`).html(carrito[posicion].cantidad);
     }
-//Llamado a funcion para ir actualizando el DOM
+    //Llamado a funcion para ir actualizando el DOM
     cantidadYTotalProds();
     //Animaciones concatenadas para efecto de agregar al carrito
     $(`#${producto.codigo}`).css("background","green").fadeOut(800, () =>{
@@ -96,13 +96,13 @@ function finalizarCompra(){
         title:'Pedido procesado,desea continuar?',
         html:'Cantidad de productos: '+localStorage.getItem("cantidadEnCarrito") +'<br>Total:$'+localStorage.getItem("totalEnCarrito"),
         denyButtonText:'Cancelar compra',
-        confirmButtonText:'Envio y metodos de pago',
+        confirmButtonText:'<a href="finalizarCompra.html" class="finalizarCompra">Envio y metodos de pago</a>',
         reverseButtons:true,
     });
     //Remuevo los items para no eliminar los productos nuevos que hayan sido agregados
-    localStorage.removeItem("carritoPersistencia");
-    localStorage.removeItem("cantidadEnCarrito");
-    localStorage.removeItem("totalEnCarrito");
+    // localStorage.removeItem("carritoPersistencia");
+    // localStorage.removeItem("cantidadEnCarrito");
+    // localStorage.removeItem("totalEnCarrito");
 
     montoTotalAPagar.html ("$" + 0);
     cantidadDeProductos.html ( 0 );

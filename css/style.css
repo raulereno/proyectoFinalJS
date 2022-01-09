@@ -1,3 +1,12 @@
+.finalizarCompra {
+  text-decoration: none;
+  color: black;
+}
+
+.finalizarCompra:hover {
+  color: white;
+}
+
 .navYLogo_Productos {
   display: flex;
   justify-content: space-between;
@@ -215,6 +224,78 @@
 
 .contenedorWikiDog #breed_data_table .tituloDeTabla {
   width: 100%;
+}
+
+.contenedorPadreFinalizar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contenedorPadreFinalizar .formularioFinalizarCompra {
+  display: flex;
+  flex-direction: column;
+}
+
+.contenedorPadreFinalizar .formularioFinalizarCompra input {
+  width: 15rem;
+  margin: 0.2rem;
+}
+
+.contenedorPadreFinalizar .productoEnCarrito {
+  height: 30rem;
+  overflow-y: scroll;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+}
+
+.contenedorPadreFinalizar .productoEnCarrito .imgCarrito {
+  width: 4.5rem;
+  border: 1px solid #d5fdc5;
+}
+
+.contenedorPadreFinalizar .productoEnCarrito table {
+  background-color: black;
+}
+
+.contenedorPadreFinalizar .productoEnCarrito .infoCarrito {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  border-top: 1px solid black;
+  position: sticky;
+  bottom: 0;
+  background-color: white;
+}
+
+.contenedorPadreFinalizar .productoEnCarrito .infoCarrito .cantidadProductos {
+  display: flex;
+  flex-direction: column;
+  background-color: #e4e4e4;
+  padding: 0 0.5rem 0 0.5rem;
+}
+
+.contenedorPadreFinalizar .productoEnCarrito .infoCarrito .cantidadProductos h5 {
+  font-size: 1rem;
+}
+
+.contenedorPadreFinalizar .productoEnCarrito .infoCarrito .cantidadProductos p {
+  align-self: center;
+}
+
+.contenedorPadreFinalizar .productoEnCarrito .infoCarrito .totalAPagar {
+  display: flex;
+  flex-direction: column;
+  background-color: #e4e4e4;
+  padding: 0 1rem 0 1rem;
+}
+
+.contenedorPadreFinalizar .productoEnCarrito .infoCarrito .totalAPagar h5 {
+  font-size: 1.2rem;
+}
+
+.contenedorPadreFinalizar .productoEnCarrito .infoCarrito .totalAPagar p {
+  align-self: center;
 }
 
 * {
