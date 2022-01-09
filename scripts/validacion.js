@@ -1,26 +1,28 @@
+//Capturamos el evento click del boton submit y llamamos a la funcion validarForm
 $("#botonIngresar").click((e)=>{validadForm();});
-//NO FUNCIONA , BUSCAR EN GOOGLE O EN LAS CLASES. La clase donde enseñan el preventDefault.
 function validadForm(){
     $("#formularioIngreso").submit((e)=>{
         e.preventDefault();
+        //Contrasea predeterminada
         let usuario = "admin";
         let contraseña = 1234;
 
-
+        //Capturo los datos del submit
         let datosIngresados =$(e.target).children().children(".ingresoAdmin");
         
         if((datosIngresados[0].value == usuario) && (parseInt(datosIngresados[1].value) == contraseña) ){
             console.log("ingreso correcto");
-            aparecerBotonDeCarga();
-            $('.parrafoErrorIngreso').html('')
+            //Agrego una imagen de carga, un fadeout con un callback que hace aparecer un texto
+            $('#bodyModal').html('<div class="loading"><img src="../images/loader.gif" alt="loading" /></div><p>Procesando datos...</p>').fadeOut(2000, ()=>{
+                $('#bodyModal').html(`<p class="accesoConcedido">Acceso autorizado... Bienvenido</p>`).fadeIn(1000);
+            });
+            //Agrego un retraso de 3sg al llamado de la funcion
+            setTimeout(aparecerBotonDeCarga,3000)
         }
         else{
-            let mensajeError = $('.parrafoErrorIngreso')
-                                .html('Usuario y/o contraseña equivocadas')
+            //Sino se ingresa correctamente el usuario y la contraseña, hago aparecer un texto
+            $('.parrafoErrorIngreso').html('Usuario y/o contraseña equivocadas')
                          
         }
     })
 }
-/*Mañana utilizar el mismo sistema que para la entradas de productos, almacenar en variables 
-la contraseña y usuario y compararlo con lo ingresado en los inputs. Acordarse que al validarlas tiene que
-aparecer el boton agregar productos. Fijarse si puedo agregar un boton para eliminar las cards con los productos */

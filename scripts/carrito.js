@@ -99,7 +99,11 @@ function finalizarCompra(){
         confirmButtonText:'Envio y metodos de pago',
         reverseButtons:true,
     });
-    localStorage.clear();
+    //Remuevo los items para no eliminar los productos nuevos que hayan sido agregados
+    localStorage.removeItem("carritoPersistencia");
+    localStorage.removeItem("cantidadEnCarrito");
+    localStorage.removeItem("totalEnCarrito");
+
     montoTotalAPagar.html ("$" + 0);
     cantidadDeProductos.html ( 0 );
     cantidadDeProductos2.html( 0 );

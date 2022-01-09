@@ -66,9 +66,10 @@ function crearCards(){
         $(`#${producto.codigo}`).click((e) => {agregarAlCarro(producto);});
     }
 }
-
+//Capturo el evento del boton Agregar Productos Nuevos
 $("#cargaProdNuevo").click((e)=>{obtenerDatosProdNuevo()});
 
+//Se obtiene los datos ingresados, se llama a una funcion nueva mandando los datos como parametros
 function obtenerDatosProdNuevo(){
     $("#formularioDeCarga").submit((e)=>{
         e.preventDefault();
@@ -77,15 +78,22 @@ function obtenerDatosProdNuevo(){
         agregarProdNuevo(datos);
     })
 }
-
+//Se usa la clase para crear el producto nuevo y se lo pushea al array de objetos
 function agregarProdNuevo(productoNuevo){
     listaDeProductos.push(new Producto(productoNuevo[0].value,productoNuevo[1].value,productoNuevo[2].value,(listaDeProductos.length+1),productoNuevo[3].value ));
     console.log(listaDeProductos);
     localStorage.setItem('listaDeProductos',JSON.stringify(listaDeProductos))
     listaDeProductos = JSON.parse(localStorage.getItem('listaDeProductos'));
+    Swal.fire({
+        icon:'success',
+        title:'Producto agregado correctamente',
+        confirmButtonText:'Ok',
+    });
+    //Reseteamos el form para agregar nuevos productos. Utilizo el selector de JS puro debido a que no encontre un equivalente del reset en JQuery
+    document.getElementById("formularioDeCarga").reset();
     crearCards();
 }
-
+//Funcion que muestra el boton de carga de productos nuevos
 function aparecerBotonDeCarga(){
     $("#agregarProductos").show();
 }
