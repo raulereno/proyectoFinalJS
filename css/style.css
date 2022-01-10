@@ -41,7 +41,8 @@
   padding: 0;
 }
 
-.navYLogo_Productos .menu__navegacion ul li .carritoDeCompras:hover, .navYLogo_Productos .menu__navegacion ul li .ingresoAdmin:hover {
+.navYLogo_Productos .menu__navegacion ul li .carritoDeCompras:hover,
+.navYLogo_Productos .menu__navegacion ul li .ingresoAdmin:hover {
   cursor: pointer;
   transform: scale(1.2);
 }
@@ -181,11 +182,30 @@
   color: black;
 }
 
-.contenedorWikiDog {
+.bodyWiki {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.contenedorWikiDog #banner-message {
+.bodyWiki .contenedorWikiDog {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  border: 1px solid black;
+  width: 80%;
+}
+
+.bodyWiki .contenedorWikiDog .tituloWiki {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding: 20px;
+  border-bottom: 1px solid black;
+}
+
+.bodyWiki .contenedorWikiDog #banner-message {
   background: #fff;
   border-radius: 4px;
   padding: 20px;
@@ -196,8 +216,7 @@
   width: 500px;
 }
 
-.contenedorWikiDog #breed_data {
-  background: #fff;
+.bodyWiki .contenedorWikiDog #breed_data {
   border-radius: 4px;
   padding: 20px;
   font-size: 12px;
@@ -207,23 +226,26 @@
   width: 500px;
 }
 
-.contenedorWikiDog #breed_image {
+.bodyWiki .contenedorWikiDog #breed_image {
   background: #fff;
-  margin: 0 auto;
+  margin: 10px auto 0 auto;
   width: 460px;
 }
 
-.contenedorWikiDog #breed_data {
+.bodyWiki .contenedorWikiDog #breed_data {
   align-self: center;
 }
 
-.contenedorWikiDog #breed_data_table {
+.bodyWiki .contenedorWikiDog #breed_data_table {
   display: flex;
   flex-direction: column;
 }
 
-.contenedorWikiDog #breed_data_table .tituloDeTabla {
-  width: 100%;
+.bodyWiki .contenedorWikiDog #breed_data_table .tituloDeTabla {
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  color: black;
 }
 
 .contenedorPadreFinalizar {

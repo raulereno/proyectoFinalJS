@@ -1,40 +1,65 @@
-.contenedorWikiDog{
+.bodyWiki {
     display: flex;
-   #banner-message {
-        background: #fff;
-        border-radius: 4px;
-        padding: 20px;
-        font-size: 25px;
-        text-align: center;
-        transition: all 0.2s;
-        margin: 0 auto;
-        width: 500px;
-    }
+    flex-wrap: wrap;
+    justify-content: center;
 
-    #breed_data {
-        background: #fff;
-        border-radius: 4px;
-        padding: 20px;
-        font-size: 12px;
-        text-align: left;
-        transition: all 0.2s;
-        margin: 0 auto;
-        width: 500px;
-    }
-
-    #breed_image {
-        background: #fff;
-        margin: 0 auto;
-        width: 460px;
-    }
-    #breed_data{
-        align-self: center;
-    }
-    #breed_data_table{
+    .contenedorWikiDog {
         display: flex;
-        flex-direction: column;
-        .tituloDeTabla{
+        justify-content: center;
+        flex-wrap: wrap;
+        border: 1px solid black;
+        width: 80%;
+
+        .tituloWiki {
             width: 100%;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            padding: 20px;
+            border-bottom: 1px solid black;
+        }
+
+        #banner-message {
+            background: #fff;
+            border-radius: 4px;
+            padding: 20px;
+            font-size: 25px;
+            text-align: center;
+            transition: all 0.2s;
+            margin: 0 auto;
+            width: 500px;
+        }
+
+        #breed_data {
+            border-radius: 4px;
+            padding: 20px;
+            font-size: 12px;
+            text-align: left;
+            transition: all 0.2s;
+            margin: 0 auto;
+            width: 500px;
+        }
+
+        #breed_image {
+            background: #fff;
+            margin: 10px auto 0 auto;
+            width: 460px;
+        }
+
+        #breed_data {
+            align-self: center;
+        }
+
+        #breed_data_table {
+            display: flex;
+            flex-direction: column;
+
+            .tituloDeTabla {
+                font-size: 1.5rem;
+                display: flex;
+                justify-content: center;
+                color: black;
+            }
         }
     }
 }
