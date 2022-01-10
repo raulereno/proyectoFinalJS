@@ -66,8 +66,13 @@ function obtenerDatosProdNuevo(){
     $("#formularioDeCarga").submit((e)=>{
         e.preventDefault();
         let datos = $(e.target).children().children(".datosProdNuevo");
-        console.log(datos);
-        agregarProdNuevo(datos);
+        if( datos[0].value == "" || datos[1].value == null || datos[2].value == ""){
+            $('#errorCarga').html(`<p class="errorCarga">*Porfavor ingresa correctamente la informacion en los campos</p>`)
+        }
+        else{
+            $('#errorCarga').html('')
+            agregarProdNuevo(datos);
+        }
     })
 }
 //Se usa la clase para crear el producto nuevo y se lo pushea al array de objetos
